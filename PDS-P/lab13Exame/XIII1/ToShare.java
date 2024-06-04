@@ -48,7 +48,21 @@ public class ToShare {
     }
 
     public boolean giveBack(String code) {
+        for (Product p : products) {
+            if (p.code().equals(code)) 
+            {
+                state = State.Disponivel;
+                return giveBack(code);
+            }
+        }
+        return false;
     }
-    public String allAlugados();
-
+    
+    public String allAlugados() {
+        String s = " ";
+        for (Product p : products) {
+            s += p.code() + " ";
+        }
+        return s;
+    }
 }
